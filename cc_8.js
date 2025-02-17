@@ -98,3 +98,22 @@ filterLargeTransactions(transactions, function(amount) {
     return amount > 1000;
 });  // Expected output: [1500, 3200, 2500]
 
+
+// Task 7 - Shopping Cart Tracker (Closure)
+
+function createCartTracker() {
+    let totalCartValue = 0; // Initialize total cart value
+
+    return function(itemPrice) {
+        totalCartValue += itemPrice; // Add item price to total
+        console.log(`Total Cart Value: $${totalCartValue}`); // Log updated cart value
+    };
+}
+
+// Initialize shopping cart tracker
+let cart = createCartTracker();
+
+// Test cases
+cart(20); // Expected output: "Total Cart Value: $20"
+cart(35); // Expected output: "Total Cart Value: $55"
+
