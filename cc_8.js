@@ -106,7 +106,7 @@ function createCartTracker() {
 
     return function(itemPrice) {
         totalCartValue += itemPrice; // Add item price to total
-        console.log(`Total Cart Value: $${totalCartValue}`); // Log updated cart value
+        console.log(`Total Cart Value: $${totalCartValue}`); 
     };
 }
 
@@ -117,3 +117,19 @@ let cart = createCartTracker();
 cart(20); // Expected output: "Total Cart Value: $20"
 cart(35); // Expected output: "Total Cart Value: $55"
 
+
+// Task 8 - Savings Growth Projection (Recursion)
+
+function calculateSavings(years, amount) {
+    if (years >= 10) {
+        console.log(`Projected Savings: $${amount.toFixed(2)}`); 
+        return;
+    }
+
+    let updatedAmount = amount * 1.05; // Increase savings by 5%
+    calculateSavings(years + 1, updatedAmount); // Recursive call with incremented year
+}
+
+// Test cases
+calculateSavings(8, 1000); // Expected output: "Projected Savings: $1102.50"
+calculateSavings(5, 5000); // Expected output: "Projected Savings: $6381.41"
